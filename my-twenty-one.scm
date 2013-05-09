@@ -94,8 +94,19 @@
 			;;dealer has an A
 			#t
 			;;check if dealer's up-card is greater than 7
-			
+			(if (card-get dealer-up-card 7)
+				;;taking a hit is fine
+				#t
+				;;taking a hit is not fine
+				#f
+			)
 		)
+		;;When the player does not have hand which
+		;;is valued at 16 or below. The consideration
+		;;is when the player has 11 or less
+		(if (hand-lt customer-hand-so-far 12)
+			
+		) 
 	)
 )
 
