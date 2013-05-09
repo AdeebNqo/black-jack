@@ -44,32 +44,21 @@
 		)
 	)
 )
-;;recursive method for finding the best hand
-(define (produce-best-hand hand sum)
-	(if (not (equal? (length hand) 0))
-		
-		(if (not( equal? 'A (car (car hand)) ))
-                        ;;if current card is not an ace
-			(produce-best-hand (cdr hand) (+ sum (car (car hand))))
-                        
-                        ;;if current card is an ace
-                        (if (> (+ sum 11) 21)
-                            ;;if making ace a 11 causes a bust
-                            (produce-best-hand (cdr hand) (+ sum 1))
-                            ;;if all is well when making ace count as 11
-                            (produce-best-hand (cdr hand) (+ sum 11))
-                        )
-		)
-                ;;if there no card left
-                sum
-	)
-)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Question 2.  stop-at takes an argument n that determines a
 ;;  strategy where a card is taken only if the best total so far is
-;;  less than n. 
-
+;;  less than n.
+(define (stop-at n)
+	(lambda(customer-hand-so-far dealer-hand)
+		(if (< (best-hand customer-hand-so-far) n)
+			;;if best-hand is less than n
+			#t
+			;;if best hand is not less than n
+			#f
+		)
+	)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Question 3.   repeat-game takes a strategy and a number as
