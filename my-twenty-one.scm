@@ -18,38 +18,32 @@
 
 ;; official Version of best-hand
 (define (best-hand hand)
-	(produce-best-hand hand 0)
+	(quote Hello-World)
 )
+;;method for determining if there is an ace in a hand
+(define (ace? hand)
+        (if )
+  )
 ;;recursive method for finding the best hand
 (define (produce-best-hand hand sum)
 	(if (not (equal? (length hand) 0))
-		;;if current card is not an ace
-            
-		(if not( equal? 'A (car (car hand)) )
+		
+		(if (not( equal? 'A (car (car hand)) ))
+                        ;;if current card is not an ace
 			(produce-best-hand (cdr hand) (+ sum (car (car hand))))
+                        
+                        ;;if current card is an ace
+                        (if (> (+ sum 11) 21)
+                            ;;if making ace a 11 causes a bust
+                            (produce-best-hand (cdr hand) (+ sum 1))
+                            ;;if all is well when making ace count as 11
+                            (produce-best-hand (cdr hand) (+ sum 11))
+                        )
 		)
-                ;;if current card is an ace
-                
-                (if (> (+ sum 11) 21)
-                    ;;if making ace a 11 causes a bust
-                    (produce-best-hand (cdr hand) (+ sum 1))
-                    ;;if all is well when making ace count as 11
-                    (produce-best-hand (cdr hand) (+ sum 11))
-                )
+                ;;if there no card left
+                sum
 	)
 )
-;; Adding a card to a hand summation
-;;Method for retreiving the tail of a list
-(define (tail some-list)
-	(if (equal? (length some-list) 1)
-		(car some-list)
-		(tail (cdr some-list))
-	)
-)
-
-;; Best Value of Hand
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Question 2.  stop-at takes an argument n that determines a
