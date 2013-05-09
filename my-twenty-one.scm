@@ -13,12 +13,18 @@
 ;;;;  please do not submit the predefined code              ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #lang scheme
+load "cs3-black-jack.scm"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Question 1.  Code for "best-hand"
 
 ;; official Version of best-hand
 (define (best-hand hand)
-	(quote Hello-World)
+	(if (< (+ 10 (min-val hand)) 21)
+		;;the cards are below 21
+		(+ 10 (min-val hand))
+		;;case where an ace leads to a bust
+		(min-val hand)
+	)
 )
 ;;method for determining if there is an ace in a hand
 (define (ace? hand)
