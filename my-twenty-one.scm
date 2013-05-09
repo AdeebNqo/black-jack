@@ -67,6 +67,7 @@
 (define (repeat-game strategy n)
 	(count-wins-and-loses strategy n 0 0)
 )
+
 (define (count-wins-and-loses strategy n current-n current-sum)
 	(if (equal? n current-n)
 		;;finished playing
@@ -76,7 +77,6 @@
 		(count-wins-and-loses strategy n (+ 1 current-n) (+ current-sum (black-jack strategy)))
 	)
 )
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Question 4.    clever
 
@@ -171,7 +171,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;        Question 6.              Get Stats
 ;;;
+(define (get-stats strategy repeat-count data-points)
+	()
+)
+;;get-stats 
+(define (get-stats strategy repeat-count data-points current-list)
+	()
+)
 
+(define (get-stats strategy data-points current-list )
+        ()
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;   Question 8.   interactive 
