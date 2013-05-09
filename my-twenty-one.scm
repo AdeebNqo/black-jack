@@ -23,7 +23,10 @@
 ;;recursive method for finding the best hand
 (define (produce-best-hand hand sum)
 	(if (not (equal? (length hand) 0))
-		()
+		;;if current card is not an ace
+		(if not( equal? 'A (car (car hand)) )
+			(produce-best-hand (cdr hand) (+ sum (car (car hand))))
+		)
 	)
 )
 ;; Adding a card to a hand summation
