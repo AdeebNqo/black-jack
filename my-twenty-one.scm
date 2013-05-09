@@ -150,7 +150,18 @@
 	
 	)
 )
+;;method for counting strategies that result in a hit
+(define (count-hit strategies customer-hand-so-far dealer-hand current-count)
+	(if (equal? (length strategies) 0)
+		;;no more strategies
+		current-count
+		;;when there are still more strategies
+		(if (black-jack (car strategies))
 
+
+		)
+	)
+)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;        Question 6.              Get Stats
 ;;;
