@@ -12,21 +12,30 @@
 ;;;;  Submit a file of code of everything you created below  ;;;;
 ;;;;  please do not submit the predefined code              ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+#lang scheme
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Question 1.  Code for "best-hand"
 
 ;; official Version of best-hand
-(define best-hand hand
-	(produce-best-hand hand o)
+(define (best-hand hand)
+	(produce-best-hand hand 0)
 )
 ;;recursive method for finding the best hand
 (define (produce-best-hand hand sum)
 	(if (not (equal? (length hand) 0))
 		;;if current card is not an ace
+            
 		(if not( equal? 'A (car (car hand)) )
 			(produce-best-hand (cdr hand) (+ sum (car (car hand))))
 		)
+                ;;if current card is an ace
+                
+                (if (> (+ sum 11) 21)
+                    ;;if making ace a 11 causes a bust
+                    (produce-best-hand (cdr hand) (+ sum 1))
+                    ;;if all is well when making ace count as 11
+                    (produce-best-hand (cdr hand) (+ sum 11))
+                )
 	)
 )
 ;; Adding a card to a hand summation
