@@ -22,8 +22,18 @@
 )
 ;;method for determining if there is an ace in a hand
 (define (ace? hand)
-        (if )
-  )
+        (if (equal? (length hand) 0)
+		;;no ace found
+		#f
+		;;if there remaining cards
+		(if (equal? (car(car hand)) 'A)
+			;;ace has been found
+			#t
+			;;no ace found but there more cards
+			(ace? (cdr hand))
+		)
+	)
+)
 ;;recursive method for finding the best hand
 (define (produce-best-hand hand sum)
 	(if (not (equal? (length hand) 0))
