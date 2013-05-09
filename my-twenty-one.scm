@@ -186,8 +186,10 @@
 )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;   Question 8.   interactive 
-
-
+(define (hit? customer-hand-so-far dealer-hand)
+	(display "hit (y/n):")
+	(hit-me?)
+)
 ; function to get the input returns #t if the user types y otherwise #f
 (define (hit-me?)
   (eq? (read) 'y))
