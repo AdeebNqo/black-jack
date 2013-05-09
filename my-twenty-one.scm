@@ -18,12 +18,11 @@
 
 ;; official Version of best-hand
 (define best-hand hand
-	(produce-best-hand hand)
+	(produce-best-hand hand o)
 )
 ;;recursive method for finding the best hand
-(define produce-best-hand hand
-	(if (equal? (length hand) 1)
-		()
+(define (produce-best-hand hand sum)
+	(if (not (equal? (length hand) 0))
 		()
 	)
 )
