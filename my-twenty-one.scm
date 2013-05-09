@@ -16,9 +16,25 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Question 1.  Code for "best-hand"
 
-;; Dummy Version of best-hand
- (define (best-hand hand)
-   (min-val hand))
+;; official Version of best-hand
+(define best-hand hand
+	(produce-best-hand hand)
+)
+;;recursive method for finding the best hand
+(define produce-best-hand hand
+	(if (equal? (length hand) 1)
+		()
+		()
+	)
+)
+;; Adding a card to a hand summation
+;;Method for retreiving the tail of a list
+(define (tail some-list)
+	(if (equal? (length some-list) 1)
+		(car some-list)
+		(tail (cdr some-list))
+	)
+)
 
 ;; Best Value of Hand
 
