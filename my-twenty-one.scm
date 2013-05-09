@@ -147,7 +147,11 @@
 ;;;
 (define (majority strategy1 strategy2 strategy3)
 	(lambda(customer-hand-so-far dealer-hand)
-	
+		(if (>= (count-hit (list strategy1 strategy2 strategy3) customer-hand-so-far dealer-hand 0) 2)
+			#t
+			;;majority do not agree on a hit
+			#f
+		)
 	)
 )
 ;;method for counting strategies that result in a hit
@@ -156,9 +160,11 @@
 		;;no more strategies
 		current-count
 		;;when there are still more strategies
-		(if (black-jack (car strategies))
-
-
+		(if (equal? ((car strategies) customer-hand-so-far dealer-hand) #t)
+			;;if current_strategy leads to hit
+			(count-hit (cdr strategies) customer-hand-so-far dealer-hand (+ current-count 1))
+			;;if current strategy does not lead to a hit
+			(count-hit (cdr strategies) customer-hand-so-far dealer-hand current-count)
 		)
 	)
 )
