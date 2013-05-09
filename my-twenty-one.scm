@@ -88,7 +88,7 @@
 ;Smarter strategy
 (define (clever customer-hand-so-far dealer-up-card)
 	;;when customer16 or less
-	(if (hand-less-than customer-hand-so-far 17)
+	(if (hand-lt customer-hand-so-far 17)
 		;;let us check dealer for ace
 		(if (equal? (car dealer-up-card) 'A)
 			;;dealer has an A
@@ -105,8 +105,15 @@
 		;;is valued at 16 or below. The consideration
 		;;is when the player has 11 or less
 		(if (hand-lt customer-hand-so-far 12)
-			
-		) 
+			;;checking if dealer's up-card is between 2 and 6
+			(if (and (card-get dealer-up-card 2) (card-lt dealer-up-card 7))
+				#t
+				;;no hit
+				#f
+			)
+			;;if the customer's hand is not less than 11, dont ask for a hit
+			#f
+		)
 	)
 )
 
@@ -138,7 +145,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;      Question 5.                Majority
 ;;;
-
+(define (majority strategy1 strategy2 strategy3)
+	(lambda(customer-hand-so-far dealer-hand)
+	
+	)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;        Question 6.              Get Stats
