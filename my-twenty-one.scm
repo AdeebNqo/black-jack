@@ -172,17 +172,18 @@
 ;;;        Question 6.              Get Stats
 ;;;
 (define (get-stats strategy repeat-count data-points)
-	()
-)
-;;get-stats 
-(define (get-stats strategy repeat-count data-points current-list)
-	()
+	(really-get-stats strategy repeat-count data-points 0 '())
 )
 
-(define (get-stats strategy data-points current-list )
-        ()
-)
 
+(define (really-get-stats strategy repeat-count data-points current-data-point current-list)
+	(if (equal? data-points current-data-point)
+		;;finished constructing the list
+		current-list
+		;;constructing the list
+		(really-get-stats strategy repeat-count data-points (+ current-data-point 1) (cons (repeat-game strategy repeat-count) current-list))
+	)
+)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;   Question 8.   interactive 
 
