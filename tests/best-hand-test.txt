@@ -1,0 +1,32 @@
+(best-hand '((J h) (Q h) (7 d) ))
+27
+(best-hand '((A d) (A d) (3 s) ))
+15
+(best-hand '((5 c) (7 h) ))
+12
+(best-hand '((4 h) (6 s) (7 h) ))
+17
+(best-hand '((5 d) (9 c) ))
+14
+(best-hand '((Q c) (6 h) (6 c) (6 d) ))
+28
+(best-hand '((7 h) (J s) (Q s) ))
+27
+(best-hand '((2 h) (A c) (A h) ))
+14
+(best-hand '((A h) (7 c) (8 s) ))
+16
+(best-hand '((J c) (9 c) (J c) (J s) ))
+39
+(best-hand '((2 h) (2 c) ))
+4
+(best-hand '((Q h) (A d) ))
+21
+(best-hand '((Q h) (7 d) ))
+17
+(best-hand '((Q s) (8 c) ))
+18
+(best-hand '((3 c) (2 s) (4 d) ))
+9
+(best-hand '((2 s) (4 h) (J c) (2 h) ))
+18
