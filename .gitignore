@@ -1,3 +1,7 @@
 ./report.aux
 ./report.log
 ./report.pdf
+./build/
+./tests/
+./uct_logo.jpeg
+
