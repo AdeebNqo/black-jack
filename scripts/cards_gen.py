@@ -15,11 +15,23 @@ numbers ={
 		12:'J'
 	}
 def main():
-	print("Hello World")
-	print(gen_card())
+	print(gen_file(1000))
+#method for making a list of lists
+def gen_file(n):
+	defin = '(define myfile \n\'('
+	for i in range(n):
+		defin += '('+gen_hand()+' '+gen_card()+')\n'
+	defin += '))'
+	return defin
 
 #method for generating a hand
-def gen_hand()
+def gen_hand():
+	size = randint(2,4)
+	hand = '('
+	for i in range(size):
+		hand += gen_card() +' '
+	hand += ')'
+	return hand
 #Method for generating a random card
 def gen_card():
 	return '('+numbers[gen_num(1,12)]+' '+suit[gen_num(1,4)]+')'
